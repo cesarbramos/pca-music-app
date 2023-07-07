@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { register } from 'swiper/element/bundle';
-import { SwiperOptions } from 'swiper/types/swiper-options';
+import data from '../samples/catalog-data';
+import { Catalog } from '../models/catalog.model';
 
 @Component({
   selector: 'app-home',
@@ -9,10 +9,10 @@ import { SwiperOptions } from 'swiper/types/swiper-options';
 })
 export class HomePage {
 
-  slideOpts: SwiperOptions = {
-    initialSlide: 1,
-  }
+  list: Catalog[];
 
-  constructor() {}
+  constructor() {
+    this.list = data;
+  }
 
 }

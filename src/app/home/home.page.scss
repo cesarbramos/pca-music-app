@@ -1,7 +1,32 @@
+.album-content {
+  padding: 1rem;
+}
+
 .slide-icon {
   font-size: 25px;
 }
 
-.generic-text {
-  color: crimson;
+.album-img {
+  display: flex;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.album-title {
+  line-height: 30px;
+}
+
+.album-description {
+  padding: .8rem;
+  border-radius: 8px;
+  background: #4b4b4b0f;
+  font-size: 16px;
+}
+
+@media (prefers-color-scheme: dark) {
+
+  .album-description {
+    background: #4b4b4b32;
+  }
+  
 }
