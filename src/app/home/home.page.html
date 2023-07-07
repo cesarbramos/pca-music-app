@@ -1,20 +1,28 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
+<ion-header>
+
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <swiper-container [initialSlide]="1">
+    <swiper-slide>
+      <h1>
+        <ion-icon class="slide-icon" name="airplane-outline"></ion-icon> 
+        Titulo principal
+      </h1>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+      <img src="https://c4.wallpaperflare.com/wallpaper/586/603/742/minimalism-4k-for-mac-desktop-wallpaper-preview.jpg" alt="Fondo de pantalla">
+
+      <p class="generic-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis, enim blanditiis? Ipsa dolorum eum illo molestias, natus amet cumque necessitatibus accusantium non. Quos rerum sed id, a odio beatae itaque.</p>
+    </swiper-slide>
+    
+    <swiper-slide>
+      <h2>
+        <ion-icon class="slide-icon" name="dice-outline"></ion-icon> 
+        Titulo Secundario
+      </h2>
+      <img src="assets/images/bg-1.jpg" alt="Fondo 2">
+      <p class="generic-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint enim minus aperiam saepe porro corrupti at minima deserunt consequuntur mollitia ipsum aspernatur molestias nihil ducimus recusandae, sapiente voluptas unde debitis.</p>
+    </swiper-slide>
+
+  </swiper-container>
 </ion-content>
