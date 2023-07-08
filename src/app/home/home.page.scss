@@ -1,0 +1,16 @@
+$btn-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
+
+ion-button {
+    --box-shadow: $btn-shadow;
+    --background: var(--custom-btn-color);
+    --border-color: var(--custom-btn-color);
+    --color: var(--ion-color-primary-contrast);
+}
+
+ion-content {
+    --color: var(--ion-color-primary);
+    --padding-bottom: var(--custom-container-padding);
+    --padding-end: var(--custom-container-padding);
+    --padding-start: var(--custom-container-padding);
+    --padding-top: var(--custom-container-padding);
+}

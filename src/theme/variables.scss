@@ -3,6 +3,12 @@
 
 /** Ionic CSS Variables **/
 :root {
+
+  /** Custom variables **/
+  --custom-btn-color: crimson;
+  --custom-container-padding: 1rem;
+  --custom-bg-text-wrapper-color: #4b4b4b0f;
+
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;
@@ -197,6 +203,10 @@
    */
 
   .md body {
+
+    /** Custom variables **/
+    --custom-bg-text-wrapper-color: #4b4b4b32;
+
     --ion-background-color: #121212;
     --ion-background-color-rgb: 18,18,18;
 
