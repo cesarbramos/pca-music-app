@@ -14,27 +14,31 @@ export class LoginPage implements OnInit {
     email: [
       { type: 'required', message: 'El email es obligatorio' },
       { type: 'pattern', message: 'El email no es válido' },
+      { type: 'minlength', message: 'El email debe tener al menos 10 caracteres' },
+    ],
+    password: [
+      { type: 'required', message: 'La contraseña es obligatoria' },
+      { type: 'minlength', message: 'La contraseña debe tener al menos 4 caracteres' },
+      { type: 'maxlength', message: 'La contraseña debe tener maximo 64 caracteres' },
     ]
   }
 
   constructor(private fb: FormBuilder) {
-    this.form = this.fb.group({
-      email: ['', Validators.compose([
+    this.form = this.fb.group({ 
+      email: ['', [
         Validators.required, 
-        Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
-      ])],
-      password: ['', Validators.compose([
-        Validators.required,
-        Validators.minLength(6)
-      ])],
+        Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/),
+        Validators.minLength(10),
+      ]],
+      password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(64)]],
     });
   }
 
   ngOnInit() {
   }
 
-  hasError(type: string) {
-    return this.form.get('email')?.hasError(type) && this.form.get('email')?.dirty;
+  hasError(field: string, type: string) {
+    return this.form.get(field)?.hasError(type) && this.form.get(field)?.dirty;
   }
 
 }

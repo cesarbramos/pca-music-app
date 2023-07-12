@@ -10,7 +10,7 @@ export class LandingGuard implements CanActivate {
 
   constructor(private storage: Storage, private router: Router) {}
 
-  async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+  async canActivate(_route: ActivatedRouteSnapshot, _state: RouterStateSnapshot) {
     const canActivate: boolean = await this.storage.get('showLanding');
     
     if (canActivate) {

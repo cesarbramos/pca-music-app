@@ -5,16 +5,34 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <form [formGroup]="form">
-    <ion-input fill="outline" label="Email" label-placement="floating" formControlName="email" placeholder="example@mail.com" ></ion-input>
-    
-    <ng-container *ngFor="let validation of validationMessages.email" >
-      <div *ngIf="hasError(validation.type)">
-        {{validation.message}}
-      </div>
-    </ng-container>
 
-    <br/>
-    <ion-input fill="outline" label="Password" label-placement="floating" formControlName="password" placeholder="password"></ion-input>
-  </form>
+  <div class="container center ion-justify-content-center ion-padding">
+    <form [formGroup]="form" style="display: flex; flex-direction: column;">
+
+      <div class="center">
+        <ion-img class="ion-margin-bottom logo-img" src="assets/icon/icon.svg" ></ion-img>
+      </div>
+      <br/>
+      <ion-input fill="outline" label="Email" label-placement="floating" formControlName="email" placeholder="example@mail.com" ></ion-input>
+      
+      <ng-container *ngFor="let validation of validationMessages.email" >
+        <div *ngIf="hasError('email', validation.type)">
+          {{validation.message}}
+        </div>
+      </ng-container>
+  
+      <br/>
+      <ion-input fill="outline" label="Password" type="password" label-placement="floating" formControlName="password" placeholder="password"></ion-input>
+      <ng-container *ngFor="let val of validationMessages.password" >
+        <div *ngIf="hasError('password', val.type)">
+          {{val.message}}
+        </div>
+      </ng-container>
+      <br/>
+
+      <ion-button expand="block">Iniciar sesión</ion-button>
+    
+    </form>
+  </div>
+
 </ion-content>
