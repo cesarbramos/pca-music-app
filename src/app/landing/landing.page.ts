@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import data from '../samples/catalog-data';
 import { Catalog } from '../models/catalog.model';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-landing',
@@ -11,11 +12,12 @@ export class LandingPage implements OnInit {
 
   list: Catalog[];
 
-  constructor() {
+  constructor(private storage: Storage) {
     this.list = data;
   }
 
   ngOnInit() {
+    this.storage.set('showLanding', false);
   }
 
 }

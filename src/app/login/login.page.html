@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="form">
+    <ion-input fill="outline" label="Email" label-placement="floating" formControlName="email" placeholder="example@mail.com" ></ion-input>
+    
+    <ng-container *ngFor="let validation of validationMessages.email" >
+      <div *ngIf="hasError(validation.type)">
+        {{validation.message}}
+      </div>
+    </ng-container>
+
+    <br/>
+    <ion-input fill="outline" label="Password" label-placement="floating" formControlName="password" placeholder="password"></ion-input>
+  </form>
+</ion-content>

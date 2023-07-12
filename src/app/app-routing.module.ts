@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { LandingGuard } from './guards/landing.guard';
 
 const routes: Routes = [
   {
@@ -13,7 +14,12 @@ const routes: Routes = [
   },
   {
     path: 'landing',
-    loadChildren: () => import('./landing/landing.module').then( m => m.LandingPageModule)
+    loadChildren: () => import('./landing/landing.module').then( m => m.LandingPageModule),
+    canActivate: [ LandingGuard ],
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
 ];
 
