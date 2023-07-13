@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
+import { NavController } from '@ionic/angular';
+import { Storage } from '@ionic/storage-angular';
+
 
 @Component({
   selector: 'app-login',
@@ -21,9 +25,11 @@ export class LoginPage implements OnInit {
       { type: 'minlength', message: 'La contraseña debe tener al menos 4 caracteres' },
       { type: 'maxlength', message: 'La contraseña debe tener maximo 64 caracteres' },
     ]
-  }
+  };
 
-  constructor(private fb: FormBuilder) {
+  errorMsg?: string;
+
+  constructor(private fb: FormBuilder, private authService: AuthService, private navCtrl: NavController, private storage: Storage) {
     this.form = this.fb.group({ 
       email: ['', [
         Validators.required, 
@@ -39,6 +45,21 @@ export class LoginPage implements OnInit {
 
   hasError(field: string, type: string) {
     return this.form.get(field)?.hasError(type) && this.form.get(field)?.dirty;
+  }
+
+  login(body: any) {
+    this.authService.loginUser(body)
+    .subscribe({ next: this.OnLogin, error: this.onLoginError });
+  }
+
+  OnLogin = async () => {
+    await this.storage.set('isUserLoggedIn', true);
+    this.navCtrl.navigateForward('/home');
+  }
+
+  onLoginError(err: Error) {
+    this.errorMsg = err.message;
+    console.log(this.errorMsg);
   }
 
 }

@@ -1,5 +1,10 @@
 # Actividades
 
+## Clase #4 - (12/07/2023)
+1. Mejorar el estilo para mostrar los mensajes de error
+2. Darle estilo a nuestra pagina de login
+
+
 ## Clase #3 - (11/07/2023)
 
 1. Utilizar 3 clases de las utilidades de css en cualquier parte de mi código html.
