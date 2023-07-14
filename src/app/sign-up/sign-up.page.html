@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Registrarse</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding" (submit)="registerUser(form.value)">
+
+  <form [formGroup]="form">
+
+    <ion-item lines="none" class="input-item">
+      <ion-icon color="primary" name="mail-outline"></ion-icon>
+      <ion-input class="login-input" label="Name" label-placement="floating" formControlName="name" placeholder="example@mail.com" ></ion-input>
+    </ion-item>
+    <br/>
+  
+    <ion-item lines="none" class="input-item">
+      <ion-icon color="primary" name="mail-outline"></ion-icon>
+      <ion-input class="login-input" label="Last Name" label-placement="floating" formControlName="last_name" placeholder="example@mail.com" ></ion-input>
+    </ion-item>
+    <br/>
+
+    <ion-item lines="none" class="input-item">
+      <ion-icon color="primary" name="mail-outline"></ion-icon>
+      <ion-input class="login-input" label="Email" label-placement="floating" formControlName="email" placeholder="example@mail.com" ></ion-input>
+    </ion-item>
+    <br/>
+
+    <ion-item lines="none" class="input-item">
+      <ion-icon color="primary" name="mail-outline"></ion-icon>
+      <ion-input class="login-input" label="Password" label-placement="floating" formControlName="password" placeholder="example@mail.com" ></ion-input>
+    </ion-item>
+    <br/>
+
+    <ion-button type="submit" expand="block" [disabled]="form.invalid">Registrarse</ion-button>
+
+  </form>
+</ion-content>

@@ -1,5 +1,23 @@
-.container {
-    height: 100%;
+@import '../../theme/colors.scss';
+
+@function bg($color) {
+    @return linear-gradient(to bottom, transparent, $color 90%), url('../../assets/images/sun-tornado.svg');
+}
+
+.bg-img {
+    background-image: bg(white);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 300px;
+    position: absolute;
+    z-index: -1;
+}
+
+@media (prefers-color-scheme: dark) {
+    .bg-img {
+        background-image: bg(var(--ion-background-color));;
+    }
 }
 
 .center {
@@ -8,5 +26,34 @@
 }
 
 .logo-img {
+    margin-top: 200px;
     height: 150px;
 }
+
+.sign-in-txt {
+    font-size: 21px;
+    font-weight: 600;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+ion-icon[name="mail-outline"] {
+    margin-right: .5rem;
+}
+
+ion-icon[name="eye"] {
+    margin-left: .5rem;
+}
+
+.login-btn {
+    --padding-top: 15px;
+    --padding-bottom: 15px;
+}
+
+.input-error {
+    margin-top: 8px;
+    color: var(--ion-color-danger);
+    font-size: 14px;
+    margin-left: 5px;
+}
+

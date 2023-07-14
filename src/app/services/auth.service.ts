@@ -1,12 +1,20 @@
 import { Injectable } from '@angular/core';
-import { Observable, from, map, of } from 'rxjs';
+import { Observable, map, of } from 'rxjs';
+import { Storage } from '@ionic/storage-angular';
+
+export interface UserData {
+  name: string
+  last_name: string
+  email: string
+  password: string
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor() { }
+  constructor(private storage: Storage) { }
 
   loginUser(credentials: any): Observable<any> {
     return of(credentials).pipe(
@@ -18,4 +26,10 @@ export class AuthService {
       })
     )
   }
+
+  async registerUser(data: UserData) {
+    data.password = btoa(data.password);
+    await this.storage.set('user', data);
+  }
+
 }

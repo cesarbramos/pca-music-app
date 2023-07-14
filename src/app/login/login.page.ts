@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage-angular';
+import { emailValidator } from '../validators/CustomEmailValidator';
 
 
 @Component({
@@ -13,11 +14,11 @@ import { Storage } from '@ionic/storage-angular';
 export class LoginPage implements OnInit {
 
   form: FormGroup;
-
+  showPsw: boolean = false;
   validationMessages = {
     email: [
       { type: 'required', message: 'El email es obligatorio' },
-      { type: 'pattern', message: 'El email no es válido' },
+      { type: 'email', message: 'El email no es válido' },
       { type: 'minlength', message: 'El email debe tener al menos 10 caracteres' },
     ],
     password: [
@@ -33,7 +34,7 @@ export class LoginPage implements OnInit {
     this.form = this.fb.group({ 
       email: ['', [
         Validators.required, 
-        Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/),
+        emailValidator,
         Validators.minLength(10),
       ]],
       password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(64)]],
@@ -60,6 +61,10 @@ export class LoginPage implements OnInit {
   onLoginError(err: Error) {
     this.errorMsg = err.message;
     console.log(this.errorMsg);
+  }
+
+  onRegister() {
+    this.navCtrl.navigateForward('/sign-up');
   }
 
 }
