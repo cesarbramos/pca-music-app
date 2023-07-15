@@ -41,3 +41,9 @@
 ion-item.input-item:focus-within {
     --border-color: var(--ion-color-primary);
 }
+
+@media (prefers-color-scheme: dark) {
+    .input-item {
+        --background: var(--ion-card-background);
+    }
+}

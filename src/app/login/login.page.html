@@ -29,8 +29,7 @@
             label="Password" label-placement="floating"
             placeholder="password">
           </ion-input>
-          <ion-icon color="primary" *ngIf="!showPsw" name="eye" (click)="showPsw = !showPsw"></ion-icon>
-          <ion-icon color="primary" *ngIf="showPsw" name="eye-off-outline" (click)="showPsw = !showPsw"></ion-icon>
+          <ion-icon color="primary" [name]="showPsw ? 'eye-off-outline' : 'eye'" (click)="showPsw = !showPsw"></ion-icon>
         </ion-item>
 
         <ng-container *ngFor="let val of validationMessages.password" >

@@ -13,12 +13,12 @@ export class LandingGuard implements CanActivate {
   async canActivate(_route: ActivatedRouteSnapshot, _state: RouterStateSnapshot) {
     const canActivate: boolean = await this.storage.get('showLanding');
     
-    if (canActivate) {
-      return true;
+    if (!canActivate) {
+      this.router.navigateByUrl('/landing');
+      return false;
     }
-
-    this.router.navigateByUrl('/home')
-    return false;
+    
+    return true;
   }
   
 }

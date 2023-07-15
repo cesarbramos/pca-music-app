@@ -1,6 +1,10 @@
 # Actividades
 
-## Tarea $5 (13/07/2023)
+## Tarea #6 (14/07/2023)
+1. Colocar isUserLoggedIn en false cuando cierres sesión 
+2. Crear un item en el menu que me diseccione a la intro para que el usuario tenga acceso para poder volver a ver la intro de la pagina.
+
+## Tarea #5 (13/07/2023)
 1. Dar funcionalidad atras al botón de login (Pagina de registro)
 2. crear validators para cada campo (Pagina de registro)
 3. mostrar mensajes de error de los campos  (Pagina de registro)

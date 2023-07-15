@@ -55,7 +55,7 @@ export class LoginPage implements OnInit {
 
   OnLogin = async () => {
     await this.storage.set('isUserLoggedIn', true);
-    this.navCtrl.navigateForward('/home');
+    this.navCtrl.navigateForward('/menu/home');
   }
 
   onLoginError(err: Error) {
