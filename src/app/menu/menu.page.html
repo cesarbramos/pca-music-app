@@ -4,7 +4,14 @@
       <ion-title>Menu Content</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content class="ion-padding">This is the menu content.</ion-content>
+  <ion-content>
+
+    <ion-item *ngFor="let item of menuItems" [href]="item.onClick ? undefined : item.route" (click)="item.onClick?.()">
+      <ion-icon slot="start" [name]="item.icon"></ion-icon>
+      <ion-label>{{item.label}}</ion-label>
+    </ion-item>
+
+  </ion-content>
 </ion-menu>
 <div class="ion-page" id="main-content">
   <ion-header>
@@ -15,13 +22,9 @@
       <ion-title>Menu</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content class="ion-padding"> <ion-router-outlet id="content" main></ion-router-outlet> </ion-content>
+  <ion-content>
+    <ion-router-outlet id="content" main></ion-router-outlet>
+  </ion-content>
   <ion-footer>
-    <ion-item (click)="logout()">
-      <ion-button>
-        <ion-icon name="exit-outline"></ion-icon>
-        Cerrar sesión
-      </ion-button>
-    </ion-item>
   </ion-footer>
 </div>

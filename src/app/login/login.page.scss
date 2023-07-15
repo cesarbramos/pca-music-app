@@ -37,23 +37,18 @@
     margin-bottom: 1rem;
 }
 
-ion-icon[name="mail-outline"] {
-    margin-right: .5rem;
-}
-
-ion-icon[name="eye"] {
-    margin-left: .5rem;
-}
-
 .login-btn {
     --padding-top: 15px;
     --padding-bottom: 15px;
 }
 
-.input-error {
-    margin-top: 8px;
-    color: var(--ion-color-danger);
-    font-size: 14px;
-    margin-left: 5px;
-}
+.create-acc {
+    font-size: 16px;
+    margin-top: 20px;
+    text-align: center;
 
+    a {
+        font-weight: 600;
+        text-decoration: none;
+    }
+}

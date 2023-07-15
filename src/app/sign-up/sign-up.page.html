@@ -11,31 +11,59 @@
 
   <form [formGroup]="form">
 
-    <ion-item lines="none" class="input-item">
-      <ion-icon color="primary" name="mail-outline"></ion-icon>
-      <ion-input class="login-input" label="Name" label-placement="floating" formControlName="name" placeholder="example@mail.com" ></ion-input>
-    </ion-item>
-    <br/>
+    <div class="form-input-wrapper">
+      <ion-item lines="none" class="input-item">
+        <ion-icon color="primary" name="person-outline"></ion-icon>
+        <ion-input class="login-input" label="Name" label-placement="floating" formControlName="name" placeholder="example@mail.com" ></ion-input>
+      </ion-item>
+      <ng-container *ngFor="let val of validationMessages.generic" >
+        <div class="input-error" *ngIf="hasError('name', val.type)">
+          {{val.message}}
+        </div>
+      </ng-container>
+    
+      <ion-item lines="none" class="input-item">
+        <ion-icon color="primary" name="person-outline"></ion-icon>
+        <ion-input class="login-input" label="Last Name" label-placement="floating" formControlName="last_name" placeholder="John" ></ion-input>
+      </ion-item>
+      <ng-container *ngFor="let val of validationMessages.generic" >
+        <div class="input-error" *ngIf="hasError('last_name', val.type)">
+          {{val.message}}
+        </div>
+      </ng-container>
   
-    <ion-item lines="none" class="input-item">
-      <ion-icon color="primary" name="mail-outline"></ion-icon>
-      <ion-input class="login-input" label="Last Name" label-placement="floating" formControlName="last_name" placeholder="example@mail.com" ></ion-input>
-    </ion-item>
-    <br/>
-
-    <ion-item lines="none" class="input-item">
-      <ion-icon color="primary" name="mail-outline"></ion-icon>
-      <ion-input class="login-input" label="Email" label-placement="floating" formControlName="email" placeholder="example@mail.com" ></ion-input>
-    </ion-item>
-    <br/>
-
-    <ion-item lines="none" class="input-item">
-      <ion-icon color="primary" name="mail-outline"></ion-icon>
-      <ion-input class="login-input" label="Password" label-placement="floating" formControlName="password" placeholder="example@mail.com" ></ion-input>
-    </ion-item>
-    <br/>
-
-    <ion-button type="submit" expand="block" [disabled]="form.invalid">Registrarse</ion-button>
+      <ion-item lines="none" class="input-item">
+        <ion-icon color="primary" name="mail-outline"></ion-icon>
+        <ion-input class="login-input" label="Email" label-placement="floating" formControlName="email" placeholder="Doe" ></ion-input>
+      </ion-item>
+      <ng-container *ngFor="let val of validationMessages.email" >
+        <div class="input-error" *ngIf="hasError('email', val.type)">
+          {{val.message}}
+        </div>
+      </ng-container>
+  
+      <ion-item lines="none" class="input-item">
+        <ion-icon color="primary" name="lock-closed-outline"></ion-icon>
+        <ion-input class="login-input" type="password" label="Password" label-placement="floating" formControlName="password" ></ion-input>
+      </ion-item>
+      <ng-container *ngFor="let val of validationMessages.password" >
+        <div class="input-error" *ngIf="hasError('password', val.type)">
+          {{val.message}}
+        </div>
+      </ng-container>
+  
+      <ion-item lines="none" class="input-item">
+        <ion-icon color="primary" name="lock-closed-outline"></ion-icon>
+        <ion-input class="login-input" type="password" label="Confirm password" label-placement="floating" formControlName="cPassword" ></ion-input>
+      </ion-item>
+      <ng-container *ngFor="let val of validationMessages.form" >
+        <div class="input-error" *ngIf="hasErrorForm(form, val.type)">
+          {{val.message}}
+        </div>
+      </ng-container>
+  
+      <ion-button type="submit" expand="block" [disabled]="form.invalid">Registrarse</ion-button>
+    </div>
 
   </form>
 </ion-content>

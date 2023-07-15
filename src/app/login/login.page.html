@@ -24,6 +24,7 @@
         <br/>
 
         <ion-item lines="none" class="input-item">
+          <ion-icon color="primary" name="lock-closed-outline"></ion-icon>
           <ion-input class="login-input" 
             [type]="showPsw ? 'text' : 'password'" formControlName="password" 
             label="Password" label-placement="floating"
@@ -40,7 +41,9 @@
         <br/>
 
         <ion-button class="login-btn" expand="block" type="submit">Iniciar sesión</ion-button>
-        <ion-button class="login-btn" expand="block" type="button" (click)="onRegister()">Registrarse</ion-button>
+
+
+        <div class="create-acc">¿No tienes usuario? <a routerLink="/sign-up">Crear una cuenta</a></div>
 
       </form>
     </div>

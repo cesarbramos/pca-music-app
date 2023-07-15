@@ -1,0 +1,38 @@
+$font-path: '../assets/fonts/poppins/';
+
+@function font-url($font-family, $style) {
+  @return url('#{$font-path}#{$font-family}-#{$style}.woff2') format('woff2');
+}
+
+$font-family: 'Poppins';
+
+$font-styles: (
+  "Thin": (normal, 100),
+  "ExtraLight": (normal, 200),
+  "Light": (normal, 300),
+  "Regular": (normal, 400),
+  "Medium": (normal, 500),
+  "SemiBold": (normal, 600),
+  "Bold": (normal, 700),
+  "ExtraBold": (normal, 800),
+  "Black": (normal, 900),
+  "Italic": (italic, 400),
+  "ThinItalic": (italic, 100),
+  "ExtraLightItalic": (italic, 200),
+  "LightItalic": (italic, 300),
+  "MediumItalic": (italic, 500),
+  "SemiBoldItalic": (italic, 600),
+  "BoldItalic": (italic, 700),
+  "ExtraBoldItalic": (italic, 800),
+  "BlackItalic": (italic, 900),
+);
+
+//for each combination of weight and style
+@each $style, $list in $font-styles {
+    @font-face {
+        font-family: '#{$font-family}';
+        font-style: nth($list, 1);
+        font-weight: nth($list, 2);
+        src: font-url(#{$font-family}, #{$style});
+    }
+}
