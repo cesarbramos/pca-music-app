@@ -4,8 +4,19 @@
     <swiper-container [initialSlide]="0" [slidesPerView]="4">
       <swiper-slide *ngFor="let artist of artists">
         <ion-avatar>
-          <img [src]="artist.image" alt="Michael jackson">
-          <ion-label>{{artist.name}}</ion-label>
+          <img [src]="artist.image" alt="profile picture">
+          <span class="ion-text-center">{{artist.name}}</span>
+        </ion-avatar>
+      </swiper-slide>
+    </swiper-container>
+
+
+    <!-- Local Service -->
+    <swiper-container class="ion-margin-top" [initialSlide]="0" [slidesPerView]="4">
+      <swiper-slide *ngFor="let artist of localArtists">
+        <ion-avatar>
+          <img [src]="getImage(artist)" alt="profile picture">
+          <span class="ion-text-center">{{artist.name}}</span>
         </ion-avatar>
       </swiper-slide>
     </swiper-container>

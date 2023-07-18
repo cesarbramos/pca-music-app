@@ -11,6 +11,7 @@ import { Artist } from '../models/artist.model';
 export class HomePage implements OnInit, ViewDidEnter {
 
   artists: Artist[] = [];
+  localArtists: any[] = [];
 
   constructor(private musicService: MusicService) {}
 
@@ -26,9 +27,12 @@ export class HomePage implements OnInit, ViewDidEnter {
       next: this.onArtistsLoad
     });
 
-    const artists = this.musicService.getArtistsFromJson();
-    console.log({artists});
-    
+    const {artists} = this.musicService.getArtistsFromJson();
+    this.localArtists = artists;
+  }
+
+  getImage(artist: any): string {
+    return artist.images[1].url;
   }
 
 }
