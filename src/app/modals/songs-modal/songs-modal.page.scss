@@ -1,0 +1,61 @@
+ion-avatar {
+    --border-radius: 4px;
+  }
+
+.song-desc {
+
+    ion-label {
+        font-family: "Poppins";
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    > ion-label:last-child {
+        opacity: .5;
+        font-size: 14px;
+    }
+}
+
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+  
+    height: 170px;
+    width: 400px;
+  
+    margin: 0 auto;
+  }
+  
+  .ripple-parent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+    height: 50px;
+    border-radius: 8px;
+
+    ion-icon {
+        width: 24px !important;
+        height: 24px !important;
+    }
+  }
+  
+  .custom-parent {
+    color: #de1e7e;
+  }
+  
+  .custom-ripple {
+    color: #501ace;
+  }
+
+  .fav-btn {
+    height: 100%;
+    color: #de1e7e;
+  }

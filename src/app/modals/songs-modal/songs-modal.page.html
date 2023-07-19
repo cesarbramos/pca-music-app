@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="#" (click)="close()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{artist?.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item button detail="false" *ngFor="let song of songs; index as i">
+      <ion-avatar slot="start" class="ion-margin-right">
+        <img [src]="song?.image ?? 'assets/images/song.png'" alt="song">
+      </ion-avatar>
+      
+      <div class="song-desc">
+        <ion-label>{{song?.name}}</ion-label>
+        <ion-label>{{song?.album_name}}</ion-label>
+      </div>
+
+      <ion-button (click)="addToFavorite(song, $event)" class="fav-btn" slot="end" fill="clear">
+        <ion-icon size="large" [name]="song._fav ? 'heart' : 'heart-outline'" aria-hidden="true"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
