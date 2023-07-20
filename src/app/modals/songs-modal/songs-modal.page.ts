@@ -13,16 +13,15 @@ import { Song } from 'src/app/models/song.model';import { AlbumService } from 's
 })
 export class SongsModalPage implements OnInit {
   songs?: Song[];
-  artist?: Artist;
   albums: Album[] = [];
   albumRequests: Observable<Album>[] = [];
+  title?: string;
 
   constructor(private navParams: NavParams, private modalController: ModalController, private albumService: AlbumService) { }
 
   ngOnInit() {
     this.songs = this.navParams.data['songs'];
-    this.artist = this.navParams.data['artist'];
-
+    this.title = this.navParams.data['title'];
     this.loadAlbums();
   }
 

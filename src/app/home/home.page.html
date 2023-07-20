@@ -19,6 +19,21 @@
         </ion-avatar>
       </swiper-slide>
     </swiper-container>
+
+    <!-- Album Swiper -->
+    <h1>Albumes</h1>
+    <swiper-container 
+      [initialSlide]="0"
+      [slidesPerView]="3"
+      *ngIf="albums?.length"
+      >
+    <swiper-slide *ngFor="let album of albums">
+      <ion-avatar class="album-style" (click)="showAlbumSongs(album)">
+        <img src="{{album.image}}" />
+        <span>{{album.name}}</span>
+      </ion-avatar>
+    </swiper-slide>
+  </swiper-container>
   
     <!-- <ion-button routerLink="/landing" fill="outline">Go to Landing</ion-button> -->
   </ion-content>
@@ -26,11 +41,11 @@
   <ion-footer>
     <ion-grid>
       <ion-row>
-        <ion-col class="ion-text-start">0:00</ion-col>
-        <ion-col class="ion-text-end">0:00</ion-col>
+        <ion-col class="ion-text-start">{{ formatTime(currentSong?.currentTime || 0) }}</ion-col>
+        <ion-col class="ion-text-end">{{ formatTime(currentSong?.duration || 0) }}</ion-col>
       </ion-row>
     </ion-grid>
-    <ion-progress-bar [value]="0.5"></ion-progress-bar>
+    <ion-progress-bar [value]="songProgress"></ion-progress-bar>
     <ion-grid>
       <ion-row>
         <ion-col size="1">
@@ -42,7 +57,8 @@
         }}</ion-text>
       </ion-col>
       <ion-col size="1">
-        <ion-icon name="play"></ion-icon>
+        <ion-icon *ngIf="!song?.playing" (click)="play()" name="play"></ion-icon>
+        <ion-icon *ngIf="song?.playing" (click)="pause()" name="pause"></ion-icon>
       </ion-col>
       </ion-row>
     </ion-grid>

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Artist } from '../models/artist.model';
 import * as listArtists from './artists.json';
 import { environment } from 'src/environments/environment';
+import { Song } from '../models/song.model';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,10 @@ export class MusicService {
 
   getArtistsTracks(artist_id: number){
     return this.http.get<any[]>(`${this.apiUrl}tracks/artist/${artist_id}`);
+  }
+
+  getAlbumsTracks(album_id: number) {
+    return this.http.get<Song[]>(`${this.apiUrl}tracks/album/${album_id}`);
   }
 
 }
