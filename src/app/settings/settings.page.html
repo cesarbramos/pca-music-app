@@ -1,0 +1,27 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>settings</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true">
+  <ion-avatar (click)="takePhoto()">
+    <img [src]="imageSrc" alt="Profile picture" *ngIf="!photo; else imgUser" >
+    <ng-template #imgUser><img [src]="photo" alt="Profile picture"></ng-template>
+  </ion-avatar>
+
+  <h1 class="ion-text-center">Andrea Vecino</h1>
+  <h2 class="ion-text-center">andrea@pca.edu.co</h2>
+  <ion-grid>
+    <ion-row class="align-items-center ion-text-center row-header">
+      <ion-col>100</ion-col>
+      <ion-col>25</ion-col>
+      <ion-col>123</ion-col>
+    </ion-row>
+    <ion-row class="align-items-center ion-text-center">
+      <ion-col>Artistas</ion-col>
+      <ion-col>Seguidores</ion-col>
+      <ion-col>Canciones</ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

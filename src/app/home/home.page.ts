@@ -135,9 +135,9 @@ export class HomePage implements OnInit, ViewDidEnter {
         }
       );
 
-      modal.onDidDismiss().then( dataReturned => {
-        this.song = dataReturned.data;
-      });
+      // modal.onDidDismiss().then( dataReturned => {
+      //   this.song = dataReturned.data;
+      // });
       
       modal.present();
 

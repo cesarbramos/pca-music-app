@@ -16,6 +16,7 @@ export class MenuPage implements OnInit {
     this.menuItems = [
       { label: 'Intro', icon: 'golf-outline', route: '/landing' },
       { label: 'Cerrar sesión', icon: 'exit-outline', onClick: this.logout },
+      { label: 'Configuración', icon: 'settings', route: '/menu/settings' },
     ]
   }
 

@@ -15,7 +15,12 @@ const routes: Routes = [
     component: MenuPage,
     loadChildren: () => import('../home/home.module').then( m => m.HomePageModule),
     canActivate: [LoginGuard, LandingGuard]
-  }
+  },
+  {
+    path: 'settings',
+    component: MenuPage,
+    loadChildren: () => import('../settings/settings.module').then( m => m.SettingsPageModule)
+  },
 ];
 
 @NgModule({
