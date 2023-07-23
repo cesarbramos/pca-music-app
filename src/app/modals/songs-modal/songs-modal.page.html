@@ -9,13 +9,13 @@
 
 <ion-content [fullscreen]="true">
   <ion-list>
-    <ion-item button detail="false" *ngFor="let song of songs; index as i">
+    <ion-item button detail="false" *ngFor="let song of songs; index as i" (click)="play(song)">
       <ion-avatar slot="start" class="ion-margin-right">
         <img [src]="song?.image ?? 'assets/images/song.png'" alt="song">
       </ion-avatar>
       
       <div class="song-desc">
-        <ion-label>{{song?.name}}</ion-label>
+        <ion-label [ngClass]="isSameSongPlaying(song) ? 'is-playing' : ''" >{{song?.name}}</ion-label>
         <ion-label>{{song?.album_name}}</ion-label>
       </div>
 

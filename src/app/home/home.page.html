@@ -39,28 +39,6 @@
   </ion-content>
 
   <ion-footer>
-    <ion-grid>
-      <ion-row>
-        <ion-col class="ion-text-start">{{ formatTime(currentSong?.currentTime || 0) }}</ion-col>
-        <ion-col class="ion-text-end">{{ formatTime(currentSong?.duration || 0) }}</ion-col>
-      </ion-row>
-    </ion-grid>
-    <ion-progress-bar [value]="songProgress"></ion-progress-bar>
-    <ion-grid>
-      <ion-row>
-        <ion-col size="1">
-        <ion-icon name="heart"></ion-icon>
-      </ion-col>
-      <ion-col size="10" class="ion-text-center">
-        <ion-text>{{
-          song?.name || "Sin cancion seleccionada"
-        }}</ion-text>
-      </ion-col>
-      <ion-col size="1">
-        <ion-icon *ngIf="!song?.playing" (click)="play()" name="play"></ion-icon>
-        <ion-icon *ngIf="song?.playing" (click)="pause()" name="pause"></ion-icon>
-      </ion-col>
-      </ion-row>
-    </ion-grid>
+    <app-player></app-player>
   </ion-footer>
 </div>

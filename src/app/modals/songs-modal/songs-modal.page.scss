@@ -59,3 +59,7 @@ ion-avatar {
     height: 100%;
     color: #de1e7e;
   }
+
+  .is-playing {
+    --color: var(--ion-color-primary);
+  }

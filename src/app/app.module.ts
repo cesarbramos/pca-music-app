@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LandingPipe } from './landing.pipe';
 import { IonicStorageModule } from '@ionic/storage-angular';
+import { PlayerComponent } from './components/player/player.component';
 
 @NgModule({
   declarations: [AppComponent, LandingPipe],

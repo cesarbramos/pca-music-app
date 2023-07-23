@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, NavParams } from '@ionic/angular';
-import { Observable, concat, forkJoin, merge, of } from 'rxjs';
+import { Observable, merge } from 'rxjs';
 import { Album } from 'src/app/models/album.model';
 import { Artist } from 'src/app/models/artist.model';
 import { Song } from 'src/app/models/song.model';import { AlbumService } from 'src/app/services/album.service';
+import { ArtistService } from 'src/app/services/artist.service';
+import { PlaybackService } from 'src/app/services/playback.service';
 
 
 @Component({
@@ -14,15 +16,39 @@ import { Song } from 'src/app/models/song.model';import { AlbumService } from 's
 export class SongsModalPage implements OnInit {
   songs?: Song[];
   albums: Album[] = [];
+  artists: Artist[] = [];
   albumRequests: Observable<Album>[] = [];
+  artistsRequests: Observable<Artist>[] = [];
   title?: string;
 
-  constructor(private navParams: NavParams, private modalController: ModalController, private albumService: AlbumService) { }
+  constructor(private navParams: NavParams, 
+    private modalController: ModalController, 
+    private albumService: AlbumService, 
+    private playbackService: PlaybackService,
+    private artistService: ArtistService) { }
 
   ngOnInit() {
     this.songs = this.navParams.data['songs'];
     this.title = this.navParams.data['title'];
     this.loadAlbums();
+    this.loadArtists();
+  }
+
+  loadArtists() {
+    const artistsIds: Set<number> = new Set(this.songs?.map(({artist_id}) => artist_id))
+
+    for(const id of artistsIds) {
+      this.artistsRequests.push(this.artistService.getArtistById(id));
+    }
+
+    merge(...this.artistsRequests)
+    .subscribe(artist => {
+      this.artists.push(artist);
+
+      this.songs?.filter(song => song.artist_id === artist.id)
+      .forEach(song => song.artist = artist);
+
+    });
   }
 
   loadAlbums() {
@@ -56,6 +82,15 @@ export class SongsModalPage implements OnInit {
 
   close() {
     return this.modalController.dismiss(null, '');
+  }
+
+  play(song: Song) {
+    this.playbackService.setNewSong(song);
+    this.playbackService.play();
+  }
+
+  isSameSongPlaying(song: Song): boolean {
+    return this.playbackService?.song?.id === song.id;
   }
 
 }

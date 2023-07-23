@@ -1,3 +1,5 @@
+import { Artist } from "./artist.model"
+
 export interface Song {
     id: number
     album_id: number
@@ -12,5 +14,6 @@ export interface Song {
     image?: string
     album_name?: string
     _fav?: boolean
+    artist?: Artist
   }
   

@@ -1,0 +1,68 @@
+<div class="player-wrapper">
+  <div class="player-bg" [ngStyle]="{'background-image': 'url(' + image + ')'}"></div>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="auto">
+        <ion-avatar>
+          <img [src]="image">
+        </ion-avatar>
+      </ion-col>
+      <ion-col>
+        <ion-row>
+          <ion-col>
+            <ion-row>
+              <div class="artist-container">
+                <ion-text>{{ songName }}</ion-text>
+              </div>
+            </ion-row>
+            <ion-row>
+              <div class="artist-container">
+                <ion-text class="opaced">{{ artistName }}</ion-text>
+              </div>
+            </ion-row>
+          </ion-col>
+          <ion-col size="auto" class="ion-align-items-center flex">
+            <ion-icon *ngIf="!isPlaying" (click)="play()" name="play"></ion-icon>
+            <ion-icon *ngIf="isPlaying" (click)="pause()" name="pause"></ion-icon>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-progress-bar [value]="songProgress" color="dark"></ion-progress-bar>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- <ion-grid>
+    <ion-row>
+      <ion-avatar class="ion-margin-end">
+        <img src="assets/images/song.png">
+      </ion-avatar>
+      <ion-col>
+        <ion-grid>
+          <ion-row>
+            <ion-col class="ion-text-start">{{ formatTime(currentSong?.currentTime || 0) }}</ion-col>
+            <ion-col class="ion-text-end">{{ formatTime(currentSong?.duration || 0) }}</ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-progress-bar [value]="songProgress"></ion-progress-bar>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="1">
+            <ion-icon name="heart"></ion-icon>
+          </ion-col>
+          <ion-col size="10" class="ion-text-center">
+            <ion-text>{{
+              song?.name || "Sin cancion seleccionada"
+            }}</ion-text>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon *ngIf="!song?.playing" (click)="play()" name="play"></ion-icon>
+            <ion-icon *ngIf="song?.playing" (click)="pause()" name="pause"></ion-icon>
+          </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+</div>
