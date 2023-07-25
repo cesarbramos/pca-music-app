@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { LandingGuard } from './guards/landing.guard';
 import { LoginGuard } from './guards/login.guard';
+import { LoggedCheckGuard } from './guards/logged-check.guard';
 
 const routes: Routes = [
   // {
@@ -20,11 +21,13 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule),
+    canActivate: [ LoggedCheckGuard ],
   },
   {
     path: 'sign-up',
-    loadChildren: () => import('./sign-up/sign-up.module').then( m => m.SignUpPageModule)
+    loadChildren: () => import('./sign-up/sign-up.module').then( m => m.SignUpPageModule),
+    canActivate: [ LoggedCheckGuard ],
   },
   {
     path: 'menu',
