@@ -4,8 +4,9 @@
 1. Cargar en la vista del home un slide con los artistas que locales así como se muestran los artistas que vienen del servidor
 
 ## Tarea #6 (14/07/2023)
-1. Colocar isUserLoggedIn en false cuando cierres sesión 
-2. Crear un item en el menu que me diseccione a la intro para que el usuario tenga acceso para poder volver a ver la intro de la pagina.
+1. Colocar isUserLoggedIn en false cuando cierres sesión
+2. Crear un guarda para login y register que cuando el usuario este logrado no pueda acceder a estas rutas 
+3. Crear un item en el menu que me diseccione a la intro para que el usuario tenga acceso para poder volver a ver la intro de la pagina.
 
 ## Tarea #5 (13/07/2023)
 1. Dar funcionalidad atras al botón de login (Pagina de registro)
